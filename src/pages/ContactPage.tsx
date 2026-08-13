@@ -22,7 +22,7 @@ export function ContactPage() {
           Contact
         </h1>
         <p className="text-sm font-light text-[#666666] max-w-xl leading-relaxed">
-          We welcome inquiries for bespoke residential architecture, interior transformations, and spatial consultations globally.
+          We welcome inquiries for bespoke residential architecture, interior transformations, and spatial consultations across Delhi NCR and India.
         </p>
       </div>
 

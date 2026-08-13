@@ -32,7 +32,7 @@ export function AboutPage() {
           We view every project as a unique layered dialogue between site, shadow, climate, and human ritual. Rather than imposing predetermined styles, our methodology carefully strips away the non-essential to reveal the inherent beauty of natural stone, timber, concrete, and daylight.
         </p>
         <p>
-          Our practice spans bespoke residential architecture, spatial interior transformations, and contextual pavilion design across North America, Europe, and Asia.
+          Based in Delhi NCR, our practice spans bespoke residential architecture, spatial interior transformations, and contextual pavilion design across the region and India.
         </p>
       </div>
 

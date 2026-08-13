@@ -31,11 +31,11 @@ export const projects: Project[] = [
     title: 'Pavilion in the Oaks',
     subtitle: 'Highland Residence & Spatial Courtyard',
     categories: ['architecture'],
-    location: 'Napa Valley, California',
+    location: 'Delhi NCR, India',
     year: '2025',
     description: 'A low-slung, board-formed concrete and burnt cedar residence cantilevered over an ancient oak grove. Designed with continuous glass openings that dissolve the boundaries between shelter and landscape.',
     editorialText: [
-      'Positioned along a gentle ridge in Napa Valley, Pavilion in the Oaks was conceived as an understated horizontal volume that rests beneath the canopy of mature coastal live oaks.',
+      'Positioned within Delhi NCR, Pavilion in the Oaks was conceived as an understated horizontal volume that rests beneath the canopy of mature trees.',
       'The architecture employs a restrained palette of board-formed concrete, charred yakisugi timber, and raw lime plaster. Monolithic floor-to-ceiling glass panels allow light to wash across natural stone surfaces throughout the day, establishing a quiet, reverent cadence of light and shade.',
       'A central open-air courtyard serves as the emotional heart of the residence, organizing private suites around a serene water feature that reflects the surrounding hills.'
     ],
@@ -52,7 +52,7 @@ export const projects: Project[] = [
     featuredOrder: 1,
     isDemoContent: false, // REAL CLA PROJECT
     metadata: {
-      location: 'Napa Valley, California',
+      location: 'Delhi NCR, India',
       year: '2025',
       client: 'Private Residence',
       area: '620 m²',
@@ -69,11 +69,11 @@ export const projects: Project[] = [
     title: 'Monolith House Retreat',
     subtitle: 'Coastal Cliffside Sanctuary',
     categories: ['architecture'],
-    location: 'Big Sur, California',
+    location: 'Gurugram, Haryana',
     year: '2024',
-    description: 'An elemental stone and concrete residence anchoring a cliff overlooking the Pacific Ocean. Designed with dramatic cantilevered overhangs and deep recessed openings for wind protection.',
+    description: 'An elemental stone and concrete residence designed for the Delhi NCR climate, with deep recessed openings and generous overhangs that temper sun and heat.',
     editorialText: [
-      'Emerging directly from rugged coastal granite, Monolith House anchors itself against oceanic headwinds while offering expansive panoramic views toward the horizon.',
+      'Set within a quiet residential enclave in Gurugram, Monolith House balances privacy with expansive views across a carefully planted landscape.',
       'The exterior geometry is defined by twin basalt-clad volumes separated by a glass lightwell. Deep overhangs protect the interior spaces from glare while creating dramatic cast shadows across polished micro-cement floors.',
       'Every junction, from hidden pocket sliders to custom stone hearths, reinforces the project’s commitment to permanence and quiet luxury.'
     ],
@@ -89,7 +89,7 @@ export const projects: Project[] = [
     featuredOrder: 2,
     isDemoContent: true, // TEMPORARY DEMO PROJECT
     metadata: {
-      location: 'Big Sur, California',
+      location: 'Gurugram, Haryana',
       year: '2024',
       client: 'Private Residence',
       area: '480 m²',
@@ -106,11 +106,11 @@ export const projects: Project[] = [
     title: 'Sanctuary Interior Residence',
     subtitle: 'Tactile Minimalist Living',
     categories: ['interior'],
-    location: 'Kyoto, Japan',
+    location: 'New Delhi, Delhi',
     year: '2024',
     description: 'A serene interior transformation utilizing hand-troweled lime plaster, white oak joinery, and honed travertino stone. Emphasizing acoustic warmth and understated spatial rhythm.',
     editorialText: [
-      'Located in Kyoto, this interior renovation reimagines a contemporary apartment as an oasis of stillness amid urban density.',
+      'Located in New Delhi, this interior renovation reimagines a contemporary apartment as an oasis of stillness amid urban density.',
       'Custom floor-to-ceiling sliding shoji screens framed in pale oak organize the living spaces without rigid isolation. Light passes softly through translucent parchment, casting gentle gradients across raw linen upholstery.',
       'Integrated hidden storage and flush joinery reduce visual noise, allowing the tactile qualities of natural stone and brushed bronze hardware to take precedence.'
     ],
@@ -126,7 +126,7 @@ export const projects: Project[] = [
     featuredOrder: 3,
     isDemoContent: true, // TEMPORARY DEMO PROJECT
     metadata: {
-      location: 'Kyoto, Japan',
+      location: 'New Delhi, Delhi',
       year: '2024',
       client: 'Private Client',
       area: '290 m²',
@@ -143,12 +143,12 @@ export const projects: Project[] = [
     title: 'The Strata Courtyard',
     subtitle: 'Layered Stone & Courtyard Villa',
     categories: ['architecture'],
-    location: 'Zurich, Switzerland',
+    location: 'Noida, Uttar Pradesh',
     year: '2023',
-    description: 'A sculptural hillside dwelling crafted with layered limestone slabs and expansive glass terraces that frame alpine lake panoramas.',
+    description: 'A sculptural courtyard residence crafted with layered limestone slabs and expansive glass terraces that frame a planted urban landscape.',
     editorialText: [
-      'Set into a steep slope overlooking Lake Zurich, The Strata Courtyard explores the physical weight and spatial lightness of natural stone.',
-      'Stacked layers of regional Vals quartzite form heavy structural retaining walls, while float-glass enclosures hover effortlessly above landscaped terraces.',
+      'Set within Noida, The Strata Courtyard explores the physical weight and spatial lightness of natural stone around a shaded central court.',
+      'Stacked layers of locally sourced quartzite form heavy structural walls, while float-glass enclosures open onto landscaped terraces.',
       'Geothermal climate regulation and integrated solar glazing ensure maximum thermal efficiency while maintaining seamless floor-to-ceiling visual continuity.'
     ],
     heroImage: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=2000&q=85',
@@ -162,7 +162,7 @@ export const projects: Project[] = [
     featuredOrder: 4,
     isDemoContent: true, // TEMPORARY DEMO PROJECT
     metadata: {
-      location: 'Zurich, Switzerland',
+      location: 'Noida, Uttar Pradesh',
       year: '2023',
       client: 'Private Residence',
       area: '540 m²',
@@ -179,11 +179,11 @@ export const projects: Project[] = [
     title: 'Stone & Timber Atelier',
     subtitle: 'Creative Workshop & Studio',
     categories: ['architecture', 'interior'],
-    location: 'Aspen, Colorado',
+    location: 'Faridabad, Haryana',
     year: '2023',
-    description: 'An architectural studio and gallery retreat built with reclaimed douglas fir timbers, granite masonry, and north-facing sky monitors.',
+    description: 'An architectural studio and gallery retreat built with reclaimed timber, granite masonry, and north-facing sky monitors.',
     editorialText: [
-      'Designed as a secluded sanctuary for artistic focus, Stone & Timber Atelier harmonizes heavy timber joinery with refined modern glazing.',
+      'Designed as a secluded sanctuary for artistic focus in Faridabad, Stone & Timber Atelier harmonizes heavy timber joinery with refined modern glazing.',
       'High northern sky monitors flood the double-height drawing pavilion with constant diffused daylight, ideal for architectural model crafting and photography.',
       'A massive central granite fireplace provides radiant warmth during winter months, grounding the lofty timber structure with earthy materiality.'
     ],
@@ -198,7 +198,7 @@ export const projects: Project[] = [
     featuredOrder: 5,
     isDemoContent: true, // TEMPORARY DEMO PROJECT
     metadata: {
-      location: 'Aspen, Colorado',
+      location: 'Faridabad, Haryana',
       year: '2023',
       client: 'Studio Retreat',
       area: '380 m²',
@@ -215,11 +215,11 @@ export const projects: Project[] = [
     title: 'Minimalist Penthouse Loft',
     subtitle: 'Urban Horizon Residence',
     categories: ['interior'],
-    location: 'New York, USA',
+    location: 'Gurugram, Haryana',
     year: '2022',
     description: 'A refined high-floor penthouse featuring continuous polished concrete, matte black metal details, and custom acoustic timber wall linings.',
     editorialText: [
-      'Hovering high above Manhattan, this penthouse transformation converts a raw industrial loft space into an understated sanctuary.',
+      'Set high above Gurugram, this penthouse transformation converts a raw urban shell into an understated sanctuary.',
       'Clean architectural lines guide the eye toward expansive skyline vistas, while concealed indirect lighting accents the subtle textures of plaster and concrete.',
       'A custom kitchen island carved from a single slab of honed Pietra Carbon marble serves as both functional culinary center and monolithic sculpture.'
     ],
@@ -233,7 +233,7 @@ export const projects: Project[] = [
     isFeatured: false,
     isDemoContent: true,
     metadata: {
-      location: 'New York, USA',
+      location: 'Gurugram, Haryana',
       year: '2022',
       client: 'Private Residence',
       area: '310 m²',

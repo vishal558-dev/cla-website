@@ -26,7 +26,7 @@ export const siteConfig: SiteConfig = {
     // Minimal, typography-led Contact CTA section
     contactCta: {
       heading: "Let’s create something together.",
-      subheading: "We welcome discussions for bespoke residential, commercial, and spatial inquiries globally.",
+      subheading: "We welcome discussions for bespoke residential, commercial, and spatial inquiries across Delhi NCR and India.",
       buttonText: 'Get in touch',
     },
   },
@@ -51,8 +51,8 @@ export const siteConfig: SiteConfig = {
     whatsappNumber: '+919810774709',
     whatsappLink: 'https://wa.me/919810774709?text=Hello%20CLA%20Team%2C%20I%20would%20like%20to%20discuss%20a%20project.',
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=28.581335%2C77.364180',
-    googleMapsEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.250320708571!2d-122.40428468439363!3d37.76818197976077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808f7f2b1d6e1dbb%3A0x6b1f2e1a12345678!2sDesign%20District%2C%20San%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1650000000000!5m2!1sen!2sus',
-    officeHours: 'Monday – Friday: 09:00 – 18:00 PST',
+    googleMapsEmbedUrl: 'https://www.google.com/maps?q=28.581335,77.364180&z=15&output=embed',
+    officeHours: 'Monday – Friday: 09:00 – 18:00 IST',
   },
   social: {
     instagram: 'https://instagram.com/creativelayersarchitects',
