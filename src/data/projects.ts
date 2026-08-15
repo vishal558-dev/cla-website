@@ -23,10 +23,41 @@ export const categories: Category[] = [
 
 export const projects: Project[] = [
   // --------------------------------------------------------------------------
-  // 1. PRIMARY REAL CLA PROJECT
+  // 1. COMMAND CONTROL CENTRE (REAL CLA PROJECT)
   // --------------------------------------------------------------------------
   {
     id: 'cla-001',
+    slug: 'command-control-centre',
+    title: 'Integrated Command Control Centre (ICCC / ISTMS)',
+    subtitle: 'Smart City Operations Hub & Civic Infrastructure',
+    categories: ['architecture'],
+    location: 'Sector 94, Noida',
+    year: '2025',
+    description: 'The Integrated Security and Traffic Management System (ISTMS) Command and Control Centre at Sector 94 serves as the nerve center for Noida’s smart governance, real-time surveillance, and traffic management infrastructure. Strategically situated at the Mahamaya Flyover junction—a major transit gateway connecting Delhi and the Noida–Greater Noida Expressway—the facility enables unified urban monitoring, safety enforcement, and emergency response coordination.',
+    heroImage: '/images/projects/command-control-centre/command-control-centre-day.jpg',
+    galleryImages: [
+      '/images/projects/command-control-centre/command-control-centre-day.jpg',
+      '/images/projects/command-control-centre/command-control-centre-night.png'
+    ],
+    published: true,
+    isFeatured: true,
+    featuredOrder: 1,
+    isDemoContent: false,
+    metadata: {
+      location: 'Sector 94, Noida',
+      year: '2025',
+      client: 'New Okhla Industrial Development Authority (NOIDA)',
+      typology: 'Civic & Institutional Infrastructure / Smart City Operation Hub',
+      area: '~5,000 sq. m',
+      scope: 'Architecture, Facade Engineering & Infrastructure Integration'
+    }
+  },
+
+  // --------------------------------------------------------------------------
+  // 2. PAVILION IN THE OAKS
+  // --------------------------------------------------------------------------
+  {
+    id: 'cla-002',
     slug: 'pavilion-in-the-oaks',
     title: 'Pavilion in the Oaks',
     subtitle: 'Highland Residence & Spatial Courtyard',
@@ -49,8 +80,8 @@ export const projects: Project[] = [
     ],
     published: true,
     isFeatured: true,
-    featuredOrder: 1,
-    isDemoContent: false, // REAL CLA PROJECT
+    featuredOrder: 2,
+    isDemoContent: false,
     metadata: {
       location: 'Delhi NCR, India',
       year: '2025',

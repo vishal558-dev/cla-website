@@ -7,16 +7,17 @@ export const siteConfig: SiteConfig = {
     establishedYear: 2018,
   },
   homepage: {
-    // The hero image uses the first real CLA project
-    heroProjectSlug: 'pavilion-in-the-oaks',
+    // The hero image uses the Command Control Centre night time facade
+    heroProjectSlug: 'command-control-centre',
+    heroBackgroundImage: '/images/projects/command-control-centre/command-control-centre-night.png',
     
-    // Slugs of projects featured in the homepage slider (5 projects, ordered manually)
+    // Slugs of projects featured in the homepage slider (ordered manually)
     featuredProjectSlugs: [
+      'command-control-centre',
       'pavilion-in-the-oaks',
       'monolith-house-retreat',
       'sanctuary-interior-residence',
-      'the-strata-courtyard',
-      'stone-and-timber-atelier'
+      'the-strata-courtyard'
     ],
     
     // Homepage short About introduction (2-3 lines of realistic minimal placeholder copy)

@@ -6,8 +6,9 @@ import { FeaturedSlider } from '../components/FeaturedSlider';
 import { SEO } from '../components/SEO';
 
 export function HomePage() {
-  // Hero image uses the first real CLA project specified in siteConfig
+  // Hero image uses heroBackgroundImage or the first real CLA project specified in siteConfig
   const heroProject = getProjectBySlug(siteConfig.homepage.heroProjectSlug);
+  const heroBgImage = siteConfig.homepage.heroBackgroundImage || heroProject?.heroImage;
 
   // Get featured projects in the order configured in siteConfig
   const featuredProjects = getFeaturedProjects(
@@ -24,10 +25,10 @@ export function HomePage() {
 
       {/* 1. Opening Hero Section */}
       <section className="relative w-full h-screen min-h-[640px] bg-[#111111] overflow-hidden flex items-center justify-center">
-        {heroProject?.heroImage ? (
+        {heroBgImage ? (
           <div className="absolute inset-0 w-full h-full animate-fade-in">
             <img
-              src={heroProject.heroImage}
+              src={heroBgImage}
               alt="Creative Layers Architects Featured Architecture"
               referrerPolicy="no-referrer"
               className="w-full h-full object-cover object-center filter brightness-[0.85]"

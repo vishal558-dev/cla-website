@@ -85,9 +85,18 @@ export function ProjectDetailPage() {
           {project.metadata?.client && (
             <div>
               <span className="text-[10px] uppercase tracking-[0.2em] text-[#111111] font-medium block mb-1">
-                Typology
+                Client
               </span>
               <p>{project.metadata.client}</p>
+            </div>
+          )}
+
+          {project.metadata?.typology && (
+            <div>
+              <span className="text-[10px] uppercase tracking-[0.2em] text-[#111111] font-medium block mb-1">
+                Typology
+              </span>
+              <p>{project.metadata.typology}</p>
             </div>
           )}
 
@@ -110,19 +119,11 @@ export function ProjectDetailPage() {
           )}
         </div>
 
-        {/* Editorial Text Column */}
+        {/* Description Column */}
         <div className="md:col-span-8">
-          <p className="font-serif-editorial text-2xl md:text-3xl text-[#111111] font-light leading-relaxed mb-6">
+          <p className="font-serif-editorial text-xl md:text-2xl text-[#111111] font-light leading-relaxed">
             {project.description}
           </p>
-
-          {project.editorialText && project.editorialText.length > 0 && (
-            <div className="flex flex-col gap-4 text-sm text-[#444444] font-light leading-relaxed">
-              {project.editorialText.map((paragraph, index) => (
-                <p key={index}>{paragraph}</p>
-              ))}
-            </div>
-          )}
         </div>
       </div>
 

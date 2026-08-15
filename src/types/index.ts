@@ -11,6 +11,7 @@ export interface ProjectMetadata {
   location: string;
   year: string;
   client?: string;
+  typology?: string;
   area?: string;
   scope?: string;
 }
@@ -43,6 +44,7 @@ export interface SiteConfig {
   };
   homepage: {
     heroProjectSlug: string; // First real CLA project
+    heroBackgroundImage?: string; // Optional override for landing hero background
     featuredProjectSlugs: string[]; // Slugs of 4-5 featured projects in manual order
     aboutIntroText: string;
     contactCta: {
