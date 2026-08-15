@@ -6,10 +6,10 @@ import { CategoryId } from '../types';
 import { SEO } from '../components/SEO';
 
 export function ProjectsPage() {
-  const { category } = useParams<{ category?: string }>();
+  const { category, param } = useParams<{ category?: string; param?: string }>();
   const navigate = useNavigate();
 
-  const activeCategory: CategoryId = (category as CategoryId) || 'all';
+  const activeCategory: CategoryId = ((param || category) as CategoryId) || 'all';
 
   const categoryObj = categories.find((c) => c.id === activeCategory) || categories[0];
   const filteredProjects = getProjectsByCategory(activeCategory);

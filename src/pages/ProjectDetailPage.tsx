@@ -4,13 +4,14 @@ import { getProjectBySlug, getAdjacentProjects } from '../data/projects';
 import { SEO } from '../components/SEO';
 
 export function ProjectDetailPage() {
-  const { slug } = useParams<{ slug: string }>();
+  const { slug, param } = useParams<{ slug?: string; param?: string }>();
+  const projectSlug = slug || param;
 
-  if (!slug) {
+  if (!projectSlug) {
     return <Navigate to="/404" replace />;
   }
 
-  const project = getProjectBySlug(slug);
+  const project = getProjectBySlug(projectSlug);
 
   if (!project) {
     return <Navigate to="/404" replace />;
