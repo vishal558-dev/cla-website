@@ -120,17 +120,17 @@ export function FeaturedSlider({ projects, autoPlayIntervalMs = 5500 }: Featured
           className="slider-view-project-btn group"
         >
           <span>View Project</span>
-          <span className="transform group-hover:translate-x-1.5 transition-transform duration-300">
+          <span className="text-[#FFC01D] font-medium transform group-hover:translate-x-1.5 transition-transform duration-300">
             →
           </span>
         </Link>
       </div>
 
       {/* Minimal Slider Controls & Counter (Bottom Right) */}
-      <div className="slider-controls-container flex items-center gap-4 sm:gap-6 bg-black/50 backdrop-blur-md border border-white/10 px-4 sm:px-6 py-2.5 sm:py-3">
+      <div className="slider-controls-container flex items-center gap-4 sm:gap-6 bg-black/60 backdrop-blur-md border border-white/15 px-4 sm:px-6 py-2.5 sm:py-3 shadow-lg">
         {/* Progress Counter (e.g., 01 / 05) */}
         <div className="text-xs font-mono tracking-widest text-white/90">
-          <span className="text-white font-medium">
+          <span className="text-[#FFC01D] font-medium">
             {String(currentIndex + 1).padStart(2, '0')}
           </span>
           <span className="text-white/40 mx-1.5">/</span>
@@ -146,7 +146,7 @@ export function FeaturedSlider({ projects, autoPlayIntervalMs = 5500 }: Featured
               prevSlide();
               resetAutoplay();
             }}
-            className="p-1.5 text-white/70 hover:text-white transition-colors focus:outline-hidden"
+            className="p-1.5 text-white/70 hover:text-[#FFC01D] transition-colors focus:outline-hidden cursor-pointer"
             aria-label="Previous Slide"
           >
             <svg
@@ -169,7 +169,7 @@ export function FeaturedSlider({ projects, autoPlayIntervalMs = 5500 }: Featured
               nextSlide();
               resetAutoplay();
             }}
-            className="p-1.5 text-white/70 hover:text-white transition-colors focus:outline-hidden"
+            className="p-1.5 text-white/70 hover:text-[#FFC01D] transition-colors focus:outline-hidden cursor-pointer"
             aria-label="Next Slide"
           >
             <svg
@@ -190,9 +190,9 @@ export function FeaturedSlider({ projects, autoPlayIntervalMs = 5500 }: Featured
       </div>
 
       {/* Minimal Progress Bar along bottom edge */}
-      <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/10 z-20">
+      <div className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-white/10 z-20">
         <div
-          className="h-full bg-white transition-all duration-300 ease-out"
+          className="h-full bg-gradient-to-r from-[#E5A912] to-[#FFC01D] transition-all duration-300 ease-out"
           style={{ width: `${((currentIndex + 1) / total) * 100}%` }}
         />
       </div>

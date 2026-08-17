@@ -4,7 +4,13 @@ export const siteConfig: SiteConfig = {
   brand: {
     name: 'cla',
     fullName: 'Creative Layers Architects',
+    tagline: 'creating places for people',
     establishedYear: 2018,
+    logoDark: '/images/cla-logo-dark.png',
+    logoLight: '/images/cla-logo-light.png',
+    symbolDark: '/images/cla-symbol-dark.png',
+    symbolLight: '/images/cla-symbol-light.png',
+    logoOriginal: '/images/cla-logo-original.png',
   },
   homepage: {
     // The hero image uses the Command Control Centre night time facade
@@ -52,7 +58,7 @@ export const siteConfig: SiteConfig = {
     whatsappNumber: '+919810774709',
     whatsappLink: 'https://wa.me/919810774709?text=Hello%20CLA%20Team%2C%20I%20would%20like%20to%20discuss%20a%20project.',
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=28.581335%2C77.364180',
-    googleMapsEmbedUrl: 'https://www.google.com/maps?q=28.581335,77.364180&z=15&output=embed',
+    googleMapsEmbedUrl: 'https://maps.google.com/maps?q=28.581335,77.364180&hl=en&z=15&output=embed',
     officeHours: 'Monday – Friday: 09:00 – 18:00 IST',
   },
   social: {

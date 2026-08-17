@@ -45,9 +45,10 @@ export function ProjectDetailPage() {
 
         <Link
           to="/projects"
-          className="text-xs uppercase tracking-[0.2em] text-[#111111] hover:text-[#666666] transition-colors font-medium"
+          className="group text-xs uppercase tracking-[0.2em] text-[#111111] hover:text-[#111111] transition-colors font-medium inline-flex items-center gap-2"
         >
-          ← Back to Projects
+          <span className="text-[#D49B0E] font-semibold transform group-hover:-translate-x-1 transition-transform">←</span>
+          <span>Back to Projects</span>
         </Link>
       </div>
 
@@ -155,10 +156,10 @@ export function ProjectDetailPage() {
             to={`/projects/${prev.slug}`}
             className="group flex flex-col text-left"
           >
-            <span className="text-[10px] uppercase tracking-[0.2em] text-[#666666] mb-1">
+            <span className="text-[10px] uppercase tracking-[0.2em] text-[#666666] group-hover:text-[#D49B0E] transition-colors mb-1">
               ← Previous Project
             </span>
-            <span className="font-serif-editorial text-xl text-[#111111] group-hover:text-[#666666] transition-colors">
+            <span className="font-serif-editorial text-xl text-[#111111] group-hover:text-[#111111] transition-colors">
               {prev.title}
             </span>
           </Link>
@@ -169,10 +170,10 @@ export function ProjectDetailPage() {
             to={`/projects/${next.slug}`}
             className="group flex flex-col text-right"
           >
-            <span className="text-[10px] uppercase tracking-[0.2em] text-[#666666] mb-1">
+            <span className="text-[10px] uppercase tracking-[0.2em] text-[#666666] group-hover:text-[#D49B0E] transition-colors mb-1">
               Next Project →
             </span>
-            <span className="font-serif-editorial text-xl text-[#111111] group-hover:text-[#666666] transition-colors">
+            <span className="font-serif-editorial text-xl text-[#111111] group-hover:text-[#111111] transition-colors">
               {next.title}
             </span>
           </Link>

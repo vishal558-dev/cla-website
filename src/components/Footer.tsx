@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { siteConfig } from '../config/siteConfig';
+import { ClaLogoSvg } from './ClaLogoSvg';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -14,12 +15,10 @@ export function Footer() {
           <div className="md:col-span-5 flex flex-col justify-between">
             <div>
               <Link to="/" className="inline-block group mb-4">
-                <span className="font-serif-editorial text-4xl font-light tracking-tight text-white block">
-                  cla
-                </span>
-                <span className="text-[11px] uppercase tracking-[0.2em] text-stone-400 font-medium block mt-1">
-                  {siteConfig.brand.fullName}
-                </span>
+                <ClaLogoSvg
+                  variant="light"
+                  className="h-10 md:h-11 w-auto transition-opacity duration-300 group-hover:opacity-85"
+                />
               </Link>
               <p className="text-sm text-stone-400 font-light max-w-sm mt-4 leading-relaxed">
                 Architecture, interior design & spatial planning driven by material honesty, contextual geometry, and enduring minimalism.
@@ -29,17 +28,17 @@ export function Footer() {
             <div className="mt-8">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-white hover:text-stone-300 transition-colors group"
+                className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-[#FAF9F6] hover:text-[#FFC01D] transition-colors group"
               >
                 <span>Get in touch with us</span>
-                <span className="transform group-hover:translate-x-1 transition-transform">→</span>
+                <span className="text-[#FFC01D] transform group-hover:translate-x-1.5 transition-transform">→</span>
               </Link>
             </div>
           </div>
 
           {/* Contact & Studio Details Column */}
           <div className="md:col-span-4 flex flex-col gap-4 text-xs font-light text-stone-300">
-            <span className="text-[10px] uppercase tracking-[0.25em] text-stone-500 font-medium mb-1">
+            <span className="text-[10px] uppercase tracking-[0.25em] text-[#FFC01D]/80 font-medium mb-1">
               Studio Location
             </span>
             <address className="not-italic leading-relaxed">
@@ -65,9 +64,10 @@ export function Footer() {
                 href={siteConfig.contact.whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-white transition-colors flex items-center gap-1.5"
+                className="text-[#FFC01D] hover:text-[#FFE07D] transition-colors flex items-center gap-1.5 font-medium group mt-1"
               >
-                WhatsApp Direct →
+                <span>WhatsApp Direct</span>
+                <span className="transform group-hover:translate-x-1 transition-transform">→</span>
               </a>
             </div>
           </div>

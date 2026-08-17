@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { siteConfig } from '../config/siteConfig';
 import { getProjectBySlug } from '../data/projects';
+import { ClaLogoSvg } from './ClaLogoSvg';
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -97,23 +98,13 @@ export function Header() {
           <div className="flex items-center gap-3">
             <Link
               to="/"
-              className="group flex items-baseline gap-2.5 focus:outline-hidden focus-visible:ring-1 focus-visible:ring-[#111111]"
+              className="group flex items-center gap-3 focus:outline-hidden focus-visible:ring-1 focus-visible:ring-[#111111]"
               aria-label="cla Creative Layers Architects Home"
             >
-              <span
-                className={`font-serif-editorial text-2xl lg:text-3xl font-light tracking-tight transition-opacity duration-300 ${
-                  isNotFound || isScrolled || !isHomepage ? 'text-[#111111]' : 'text-white'
-                }`}
-              >
-                cla
-              </span>
-              <span
-                className={`text-[11px] uppercase tracking-[0.2em] font-medium hidden sm:inline-block transition-colors duration-300 ${
-                  isNotFound || isScrolled || !isHomepage ? 'text-[#666666]' : 'text-white/80'
-                }`}
-              >
-                {siteConfig.brand.fullName}
-              </span>
+              <ClaLogoSvg
+                variant={isNotFound || isScrolled || !isHomepage ? 'dark' : 'light'}
+                className="h-8 sm:h-9 w-auto transition-all duration-300 group-hover:opacity-90"
+              />
             </Link>
 
             {/* Architectural 404 State Indicator */}
@@ -151,8 +142,8 @@ export function Header() {
                   {link.label}
                   {isActive && (
                     <span
-                      className={`absolute bottom-0 left-0 right-0 h-[1px] transition-all duration-300 ${
-                        isNotFound || isScrolled || !isHomepage ? 'bg-[#111111]' : 'bg-white'
+                      className={`absolute bottom-0 left-0 right-0 h-[1.5px] transition-all duration-300 ${
+                        isNotFound || isScrolled || !isHomepage ? 'bg-[#E5A912]' : 'bg-[#FFC01D]'
                       }`}
                     />
                   )}
@@ -242,12 +233,12 @@ export function Header() {
           </nav>
         </div>
 
-        <div className="border-t border-[#E5E2DC] pt-8 flex flex-col gap-2 text-xs text-[#666666]">
-          <p className="font-serif-editorial text-lg text-[#111111]">{siteConfig.brand.name}</p>
+        <div className="border-t border-[#E5E2DC] pt-8 flex flex-col gap-3 text-xs text-[#666666]">
+          <ClaLogoSvg variant="dark" className="h-8 w-auto self-start" />
           <p>{siteConfig.brand.fullName}</p>
           <a
             href={`mailto:${siteConfig.contact.email}`}
-            className="hover:text-[#111111] transition-colors mt-2"
+            className="hover:text-[#111111] transition-colors"
           >
             {siteConfig.contact.email}
           </a>

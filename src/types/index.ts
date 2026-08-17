@@ -41,6 +41,11 @@ export interface SiteConfig {
     fullName: string; // 'Creative Layers Architects'
     tagline?: string;
     establishedYear: number;
+    logoDark?: string;
+    logoLight?: string;
+    symbolDark?: string;
+    symbolLight?: string;
+    logoOriginal?: string;
   };
   homepage: {
     heroProjectSlug: string; // First real CLA project

@@ -69,7 +69,7 @@ export function ProjectGrid({
                 <span
                   className={`text-[10px] font-mono tracking-normal px-1.5 py-0.5 rounded-xs transition-colors duration-300 ${
                     isActive
-                      ? 'bg-[#111111] text-[#F9F8F6]'
+                      ? 'bg-[#111111] text-[#FFC01D] font-medium'
                       : 'bg-[#EAE7E0] text-[#777777] group-hover:bg-[#DCD8CF] group-hover:text-[#111111]'
                   }`}
                 >
@@ -78,7 +78,7 @@ export function ProjectGrid({
                 {isActive && (
                   <motion.span
                     layoutId="activeFilterUnderline"
-                    className="absolute bottom-[-1px] left-0 right-0 h-[1.5px] bg-[#111111]"
+                    className="absolute bottom-[-1px] left-0 right-0 h-[2px] bg-[#E5A912]"
                     transition={{
                       type: 'spring',
                       stiffness: 380,
@@ -157,25 +157,25 @@ export function ProjectGrid({
 
                     {/* Architectural Tag (Top Left) */}
                     <div className="absolute top-3.5 left-3.5 z-10">
-                      <div className="flex items-center gap-1.5 bg-black/50 backdrop-blur-md border border-white/20 px-2.5 py-1 text-[9px] font-mono uppercase tracking-[0.2em] text-white/90 group-hover:border-white/50 group-hover:text-white transition-all duration-300">
-                        <span className="text-white/60">{formattedIndex} //</span>
+                      <div className="flex items-center gap-1.5 bg-black/50 backdrop-blur-md border border-white/20 px-2.5 py-1 text-[9px] font-mono uppercase tracking-[0.2em] text-white/90 group-hover:border-[#E5A912]/60 group-hover:text-white transition-all duration-300">
+                        <span className="text-[#FFC01D] font-semibold">{formattedIndex} //</span>
                         <span>{primaryCategory}</span>
                       </div>
                     </div>
 
                     {/* Drafting Corner Accents (4 Corners) */}
                     <div className="absolute inset-0 p-3 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <span className="absolute top-2 left-2 text-[10px] font-mono text-white/50 leading-none select-none">+</span>
-                      <span className="absolute top-2 right-2 text-[10px] font-mono text-white/50 leading-none select-none">+</span>
-                      <span className="absolute bottom-2 left-2 text-[10px] font-mono text-white/50 leading-none select-none">+</span>
-                      <span className="absolute bottom-2 right-2 text-[10px] font-mono text-white/50 leading-none select-none">+</span>
+                      <span className="absolute top-2 left-2 text-[10px] font-mono text-[#FFC01D]/70 leading-none select-none">+</span>
+                      <span className="absolute top-2 right-2 text-[10px] font-mono text-[#FFC01D]/70 leading-none select-none">+</span>
+                      <span className="absolute bottom-2 left-2 text-[10px] font-mono text-[#FFC01D]/70 leading-none select-none">+</span>
+                      <span className="absolute bottom-2 right-2 text-[10px] font-mono text-[#FFC01D]/70 leading-none select-none">+</span>
                     </div>
 
                     {/* Center Hover Action Pill ("Explore Project →") */}
                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                       <span className="card-hover-action-btn opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 duration-300">
                         <span>Explore Project</span>
-                        <span className="transform group-hover:translate-x-1 transition-transform duration-300">
+                        <span className="text-[#FFC01D] transform group-hover:translate-x-1 transition-transform duration-300">
                           →
                         </span>
                       </span>
@@ -183,13 +183,13 @@ export function ProjectGrid({
                   </Link>
 
                   {/* Refined Project Info below card */}
-                  <div className="pt-4 pb-2 flex flex-col justify-between border-t border-[#E5E2DC] group-hover:border-[#111111] transition-colors duration-400">
+                  <div className="pt-4 pb-2 flex flex-col justify-between border-t border-[#E5E2DC] group-hover:border-[#E5A912] transition-colors duration-400">
                     <div className="flex items-baseline justify-between gap-4">
-                      <h3 className="font-serif-editorial text-2xl font-normal text-[#111111] group-hover:text-[#444444] transition-colors duration-300 flex items-center gap-2">
+                      <h3 className="font-serif-editorial text-2xl font-normal text-[#111111] group-hover:text-[#111111] transition-colors duration-300 flex items-center gap-2">
                         <Link to={`/projects/${project.slug}`}>
                           {project.title}
                         </Link>
-                        <span className="inline-block text-sm opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 font-sans font-light">
+                        <span className="inline-block text-sm text-[#D49B0E] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 font-sans font-light">
                           ↗
                         </span>
                       </h3>

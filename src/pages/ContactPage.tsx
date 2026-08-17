@@ -77,10 +77,10 @@ export function ContactPage() {
                 href={contact.whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[#111111] text-[#F9F8F6] hover:bg-[#333333] text-xs uppercase tracking-[0.2em] font-medium px-6 py-3 transition-colors mt-1"
+                className="inline-flex items-center gap-2.5 bg-[#111111] text-[#FAF9F6] border border-[#E5A912]/50 hover:border-[#E5A912] hover:bg-[#1A1A1A] hover:text-[#FFC01D] text-xs uppercase tracking-[0.2em] font-medium px-7 py-3.5 transition-all duration-300 mt-1 shadow-xs hover:shadow-[0_4px_16px_rgba(229,169,18,0.18)] group"
               >
                 <span>Direct WhatsApp Chat</span>
-                <span>→</span>
+                <span className="text-[#FFC01D] font-semibold transform group-hover:translate-x-1 transition-transform">→</span>
               </a>
             </div>
           </div>
@@ -98,38 +98,47 @@ export function ContactPage() {
 
         {/* Studio location panel */}
         <div className="lg:col-span-7">
-          <span className="text-[10px] uppercase tracking-[0.25em] text-[#666666] font-medium block mb-3">
-            Location Map
-          </span>
+          <div className="flex items-center justify-between mb-3">
+            <span className="text-[10px] uppercase tracking-[0.25em] text-[#666666] font-medium block">
+              Studio Location Map
+            </span>
+            <a
+              href={contact.googleMapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[11px] uppercase tracking-[0.18em] text-[#111111] hover:text-[#D49B0E] transition-colors font-medium inline-flex items-center gap-1.5"
+            >
+              <span>Open in Google Maps</span>
+              <span className="text-[#D49B0E] font-semibold">↗</span>
+            </a>
+          </div>
 
-          <div className="map-grid w-full h-[400px] lg:h-[480px] border border-[#E5E2DC] relative overflow-hidden">
-            <div className="absolute inset-x-0 top-[22%] h-px bg-[#111111]/15 rotate-[17deg]" />
-            <div className="absolute inset-x-0 top-[66%] h-px bg-[#111111]/15 -rotate-[14deg]" />
-            <div className="absolute left-[19%] inset-y-0 w-px bg-[#111111]/15 -rotate-[9deg]" />
-            <div className="absolute right-[26%] inset-y-0 w-px bg-[#111111]/15 rotate-[12deg]" />
+          <div className="w-full h-[400px] lg:h-[480px] border border-[#E5E2DC] relative overflow-hidden bg-[#F2F0EC] shadow-sm">
+            {/* Real Interactive Google Maps Embed */}
+            <iframe
+              title="Creative Layers Architects Studio Location"
+              src={contact.googleMapsEmbedUrl || "https://maps.google.com/maps?q=28.581335,77.364180&hl=en&z=15&output=embed"}
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen={false}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full h-full filter contrast-[1.02] opacity-95 transition-opacity duration-300"
+            />
 
-            <div className="map-marker absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-              <div className="w-4 h-4 rounded-full bg-[#111111] border-[4px] border-[#F9F8F6] shadow-[0_0_0_1px_rgba(17,17,17,0.25)]" />
-              <div className="mt-4 bg-[#111111] text-[#F9F8F6] px-4 py-2 text-[10px] uppercase tracking-[0.2em] whitespace-nowrap shadow-lg">
-                CLA Studio
+            {/* Studio Badge Floating Card */}
+            <div className="absolute top-4 left-4 z-10 bg-[#111111]/90 backdrop-blur-md text-[#FAF9F6] border border-white/10 border-l-2 border-l-[#E5A912] p-3.5 shadow-xl max-w-[240px]">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="w-2 h-2 rounded-full bg-[#FFC01D] animate-pulse" />
+                <span className="text-[9px] font-mono uppercase tracking-[0.2em] text-[#FFC01D] font-medium">CLA Studio</span>
               </div>
-            </div>
-
-            <div className="absolute left-6 top-6 max-w-[12rem]">
-              <p className="font-serif-editorial text-3xl leading-none text-[#111111]">{mapCity}</p>
-              <p className="mt-2 text-[10px] uppercase tracking-[0.18em] text-[#666666]">{contact.address.city}</p>
-            </div>
-
-            {/* Overlay Map Direct Link */}
-            <div className="absolute bottom-4 right-4 z-10">
-              <a
-                href={contact.googleMapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-[#111111]/90 backdrop-blur-md text-white text-[11px] uppercase tracking-[0.2em] px-4 py-2 hover:bg-[#111111] transition-colors inline-block"
-              >
-                Open in Google Maps ↗
-              </a>
+              <p className="font-serif-editorial text-lg text-white leading-snug">
+                {contact.address.line1}
+              </p>
+              <p className="text-[10px] uppercase tracking-wider text-stone-300 font-light mt-1">
+                {contact.address.line2}, {mapCity}
+              </p>
             </div>
           </div>
         </div>

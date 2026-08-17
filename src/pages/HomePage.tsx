@@ -4,6 +4,7 @@ import { siteConfig } from '../config/siteConfig';
 import { getProjectBySlug, getFeaturedProjects } from '../data/projects';
 import { FeaturedSlider } from '../components/FeaturedSlider';
 import { SEO } from '../components/SEO';
+import { ClaLogoSvg } from '../components/ClaLogoSvg';
 
 export function HomePage() {
   // Hero image uses heroBackgroundImage or the first real CLA project specified in siteConfig
@@ -40,14 +41,12 @@ export function HomePage() {
           <div className="absolute inset-0 bg-[#1A1A1A]" />
         )}
 
-        {/* Hero Minimal Identity Display */}
-        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-          <h1 className="font-serif-editorial text-7xl sm:text-8xl md:text-9xl font-light tracking-tight text-white mb-2 select-none">
-            {siteConfig.brand.name}
-          </h1>
-          <p className="text-xs uppercase tracking-[0.3em] font-medium text-white/80">
-            {siteConfig.brand.fullName}
-          </p>
+        {/* Hero Minimal Identity Display - Infinite resolution vector */}
+        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto flex flex-col items-center">
+          <ClaLogoSvg
+            variant="light"
+            className="w-full max-w-[320px] sm:max-w-[440px] md:max-w-[560px] lg:max-w-[640px] h-auto drop-shadow-2xl animate-fade-in"
+          />
         </div>
 
         {/* Scroll down indicator */}
@@ -70,9 +69,10 @@ export function HomePage() {
           </div>
           <Link
             to="/projects"
-            className="text-xs uppercase tracking-[0.2em] text-[#111111] hover:text-[#666666] transition-colors mt-4 md:mt-0 font-medium"
+            className="group text-xs uppercase tracking-[0.2em] text-[#111111] hover:text-[#111111] transition-colors mt-4 md:mt-0 font-medium inline-flex items-center gap-2"
           >
-            All Projects →
+            <span>All Projects</span>
+            <span className="text-[#D49B0E] font-semibold transform group-hover:translate-x-1 transition-transform">→</span>
           </Link>
         </div>
 
@@ -81,7 +81,13 @@ export function HomePage() {
 
       {/* 3. Homepage Short About Section */}
       <section className="py-20 lg:py-28 bg-[#F2F0EC] border-y border-[#E5E2DC]">
-        <div className="max-w-4xl mx-auto px-6 text-center">
+        <div className="max-w-4xl mx-auto px-6 text-center flex flex-col items-center">
+          <img
+            src={siteConfig.brand.symbolDark}
+            alt="CLA Architectural Insignia"
+            className="h-10 w-auto object-contain opacity-60 mb-6"
+            loading="lazy"
+          />
           <span className="text-[10px] uppercase tracking-[0.25em] text-[#666666] font-medium block mb-6">
             About the Studio
           </span>
@@ -90,10 +96,10 @@ export function HomePage() {
           </p>
           <Link
             to="/about"
-            className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.2em] font-medium text-[#111111] hover:text-[#666666] transition-colors group"
+            className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.2em] font-medium text-[#111111] hover:text-[#111111] transition-colors group"
           >
             <span>Read more</span>
-            <span className="transform group-hover:translate-x-1 transition-transform">→</span>
+            <span className="text-[#D49B0E] font-semibold transform group-hover:translate-x-1 transition-transform">→</span>
           </Link>
         </div>
       </section>
@@ -110,7 +116,7 @@ export function HomePage() {
         )}
         <Link
           to="/contact"
-          className="inline-block bg-[#111111] text-[#F9F8F6] hover:bg-[#222222] text-xs uppercase tracking-[0.25em] font-medium px-10 py-5 transition-all duration-300 hover:tracking-[0.3em]"
+          className="inline-block bg-[#111111] text-[#FAF9F6] border border-[#111111] hover:border-[#E5A912] hover:bg-[#1A1A1A] hover:text-[#FFC01D] text-xs uppercase tracking-[0.25em] font-medium px-10 py-5 transition-all duration-300 hover:tracking-[0.3em] shadow-xs hover:shadow-[0_6px_24px_rgba(229,169,18,0.2)]"
         >
           {siteConfig.homepage.contactCta.buttonText}
         </Link>

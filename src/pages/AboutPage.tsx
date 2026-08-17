@@ -1,6 +1,7 @@
 import React from 'react';
 import { siteConfig } from '../config/siteConfig';
 import { SEO } from '../components/SEO';
+import { ClaLogoSvg } from '../components/ClaLogoSvg';
 
 export function AboutPage() {
   return (
@@ -12,9 +13,15 @@ export function AboutPage() {
 
       {/* Page Heading - Starts directly with text, no hero image */}
       <div className="mb-16 border-b border-[#E5E2DC] pb-10">
-        <span className="text-[10px] uppercase tracking-[0.25em] text-[#666666] font-medium block mb-2">
-          Studio Philosophy
-        </span>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+          <span className="text-[10px] uppercase tracking-[0.25em] text-[#666666] font-medium block">
+            Studio Philosophy
+          </span>
+          <ClaLogoSvg
+            variant="dark"
+            className="h-8 md:h-9 w-auto self-start sm:self-auto opacity-90"
+          />
+        </div>
         <h1 className="font-serif-editorial text-4xl sm:text-5xl lg:text-6xl text-[#111111] font-light tracking-tight mb-6">
           About Us
         </h1>
