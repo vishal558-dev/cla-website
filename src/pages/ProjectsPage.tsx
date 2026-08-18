@@ -31,13 +31,13 @@ export function ProjectsPage() {
 
       {/* Page Heading */}
       <div className="mb-12">
-        <span className="text-[10px] uppercase tracking-[0.25em] text-[#666666] font-medium block mb-2">
+        <span className="text-[10px] uppercase tracking-[0.25em] text-[#6B6864] font-medium block mb-2">
           Portfolio
         </span>
-        <h1 className="font-serif-editorial text-4xl sm:text-5xl lg:text-6xl text-[#111111] font-light tracking-tight mb-4">
+        <h1 className="font-serif-editorial text-4xl sm:text-5xl lg:text-6xl text-[#121212] font-light tracking-tight mb-4">
           Projects
         </h1>
-        <p className="text-sm font-light text-[#666666] max-w-xl leading-relaxed">
+        <p className="text-sm font-light text-[#6B6864] max-w-xl leading-relaxed">
           {categoryObj.description}
         </p>
       </div>

@@ -48,7 +48,7 @@ export function ProjectGrid({
       {showCategoryFilters && (
         <nav
           aria-label="Project categories"
-          className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 mb-16 border-b border-[#E5E2DC] pb-6"
+          className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 mb-16 border-b border-[#E6E2DB] pb-6"
         >
           {categories.map((cat) => {
             const isActive = activeCategoryId === cat.id;
@@ -61,16 +61,16 @@ export function ProjectGrid({
                 onClick={() => handleCategoryClick(cat.id)}
                 className={`text-xs uppercase tracking-[0.2em] transition-colors duration-300 pb-2 relative cursor-pointer focus:outline-hidden flex items-center gap-2 group ${
                   isActive
-                    ? 'text-[#111111] font-semibold'
-                    : 'text-[#666666] hover:text-[#111111]'
+                    ? 'text-[#121212] font-semibold'
+                    : 'text-[#6B6864] hover:text-[#121212]'
                 }`}
               >
                 <span>{cat.name}</span>
                 <span
                   className={`text-[10px] font-mono tracking-normal px-1.5 py-0.5 rounded-xs transition-colors duration-300 ${
                     isActive
-                      ? 'bg-[#111111] text-[#FFC01D] font-medium'
-                      : 'bg-[#EAE7E0] text-[#777777] group-hover:bg-[#DCD8CF] group-hover:text-[#111111]'
+                      ? 'bg-[#121212] text-[#FFC01D] font-medium'
+                      : 'bg-[#ECEAE4] text-[#7A7772] group-hover:bg-[#DFDBD2] group-hover:text-[#121212]'
                   }`}
                 >
                   {String(count).padStart(2, '0')}
@@ -78,7 +78,7 @@ export function ProjectGrid({
                 {isActive && (
                   <motion.span
                     layoutId="activeFilterUnderline"
-                    className="absolute bottom-[-1px] left-0 right-0 h-[2px] bg-[#E5A912]"
+                    className="absolute bottom-[-1px] left-0 right-0 h-[2px] bg-[#D99200]"
                     transition={{
                       type: 'spring',
                       stiffness: 380,
@@ -97,7 +97,7 @@ export function ProjectGrid({
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="text-center py-20 text-[#666666] font-light"
+          className="text-center py-20 text-[#6B6864] font-light"
         >
           <p className="text-lg">No projects published under this category yet.</p>
         </motion.div>
@@ -107,8 +107,8 @@ export function ProjectGrid({
           layout
           className={`grid grid-cols-1 ${
             isTwoColumn
-              ? 'md:grid-cols-2 gap-12 lg:gap-20'
-              : 'md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12'
+              ? 'md:grid-cols-2 gap-12 lg:gap-16'
+              : 'md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10'
           }`}
         >
           <AnimatePresence mode="popLayout">
@@ -121,20 +121,20 @@ export function ProjectGrid({
                 <motion.article
                   key={project.id}
                   layout
-                  initial={{ opacity: 0, y: 16 }}
+                  initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.96 }}
+                  exit={{ opacity: 0, scale: 0.98 }}
                   transition={{
-                    duration: 0.45,
-                    delay: Math.min(idx * 0.05, 0.25),
+                    duration: 0.4,
+                    delay: Math.min(idx * 0.04, 0.2),
                     ease: [0.16, 1, 0.3, 1],
-                    layout: { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
+                    layout: { duration: 0.35, ease: [0.16, 1, 0.3, 1] },
                   }}
                   className="group flex flex-col cursor-pointer"
                 >
                   <Link
                     to={`/projects/${project.slug}`}
-                    className="block project-card-image-wrap relative group shadow-xs hover:shadow-xl transition-shadow duration-500"
+                    className="block project-card-image-wrap relative group shadow-xs hover:shadow-lg transition-shadow duration-300"
                     aria-label={`View project ${project.title}`}
                   >
                     {/* Project Thumbnail Image with Subtle Smooth Zoom & Contrast Filter */}
@@ -147,35 +147,28 @@ export function ProjectGrid({
                         className="project-card-img"
                       />
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center bg-[#E8E5DF] text-[#666666] text-xs uppercase tracking-widest font-serif-editorial">
+                      <div className="w-full h-full flex items-center justify-center bg-[#EAE7E1] text-[#6B6864] text-xs uppercase tracking-widest font-serif-editorial">
                         cla studio
                       </div>
                     )}
 
-                    {/* Gradient Overlay Vignette for Contrast */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none" />
+                    {/* Subtle Matte Overlay for Contrast */}
+                    <div className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
                     {/* Architectural Tag (Top Left) */}
-                    <div className="absolute top-3.5 left-3.5 z-10">
-                      <div className="flex items-center gap-1.5 bg-black/50 backdrop-blur-md border border-white/20 px-2.5 py-1 text-[9px] font-mono uppercase tracking-[0.2em] text-white/90 group-hover:border-[#E5A912]/60 group-hover:text-white transition-all duration-300">
-                        <span className="text-[#FFC01D] font-semibold">{formattedIndex} //</span>
+                    <div className="absolute top-3.5 left-3.5 z-10 pointer-events-none">
+                      <div className="flex items-center gap-1.5 bg-[#121212]/80 backdrop-blur-xs border border-white/15 px-2.5 py-1 text-[9px] font-mono uppercase tracking-[0.18em] text-white/90">
+                        <span className="text-[#FFC01D] font-medium">{formattedIndex}</span>
+                        <span className="text-white/40">/</span>
                         <span>{primaryCategory}</span>
                       </div>
                     </div>
 
-                    {/* Drafting Corner Accents (4 Corners) */}
-                    <div className="absolute inset-0 p-3 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <span className="absolute top-2 left-2 text-[10px] font-mono text-[#FFC01D]/70 leading-none select-none">+</span>
-                      <span className="absolute top-2 right-2 text-[10px] font-mono text-[#FFC01D]/70 leading-none select-none">+</span>
-                      <span className="absolute bottom-2 left-2 text-[10px] font-mono text-[#FFC01D]/70 leading-none select-none">+</span>
-                      <span className="absolute bottom-2 right-2 text-[10px] font-mono text-[#FFC01D]/70 leading-none select-none">+</span>
-                    </div>
-
-                    {/* Center Hover Action Pill ("Explore Project →") */}
+                    {/* Center Hover Action Pill ("View Project →") */}
                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                      <span className="card-hover-action-btn opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 duration-300">
-                        <span>Explore Project</span>
-                        <span className="text-[#FFC01D] transform group-hover:translate-x-1 transition-transform duration-300">
+                      <span className="card-hover-action-btn opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 duration-250">
+                        <span>Explore</span>
+                        <span className="text-[#FFC01D] transform group-hover:translate-x-1 transition-transform duration-250">
                           →
                         </span>
                       </span>
@@ -183,27 +176,27 @@ export function ProjectGrid({
                   </Link>
 
                   {/* Refined Project Info below card */}
-                  <div className="pt-4 pb-2 flex flex-col justify-between border-t border-[#E5E2DC] group-hover:border-[#E5A912] transition-colors duration-400">
+                  <div className="pt-4 pb-1 flex flex-col justify-between border-t border-[#E6E2DB] group-hover:border-[#121212] transition-colors duration-300">
                     <div className="flex items-baseline justify-between gap-4">
-                      <h3 className="font-serif-editorial text-2xl font-normal text-[#111111] group-hover:text-[#111111] transition-colors duration-300 flex items-center gap-2">
+                      <h3 className="font-serif-editorial text-2xl font-normal text-[#121212] flex items-center gap-2">
                         <Link to={`/projects/${project.slug}`}>
                           {project.title}
                         </Link>
-                        <span className="inline-block text-sm text-[#D49B0E] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 font-sans font-light">
+                        <span className="inline-block text-xs text-[#D99200] opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 font-sans">
                           ↗
                         </span>
                       </h3>
-                      <span className="text-[11px] font-mono text-[#888888] group-hover:text-[#111111] tracking-wider shrink-0 transition-colors duration-300">
+                      <span className="text-[11px] font-mono text-[#8C8881] group-hover:text-[#121212] tracking-wider shrink-0 transition-colors duration-300">
                         {project.year}
                       </span>
                     </div>
 
-                    <div className="flex items-center justify-between gap-2 mt-1.5 text-[11px] text-[#666666] font-light">
+                    <div className="flex items-center justify-between gap-2 mt-1 text-[11px] text-[#6B6864] font-light">
                       <span className="uppercase tracking-[0.16em]">
                         {project.location}
                       </span>
                       {typology && (
-                        <span className="text-[10px] text-[#888888] font-mono tracking-tight truncate max-w-[50%] text-right hidden sm:inline-block">
+                        <span className="text-[10px] text-[#8C8881] font-mono tracking-tight truncate max-w-[50%] text-right hidden sm:inline-block">
                           {typology}
                         </span>
                       )}

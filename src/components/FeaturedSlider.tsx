@@ -127,7 +127,7 @@ export function FeaturedSlider({ projects, autoPlayIntervalMs = 5500 }: Featured
       </div>
 
       {/* Minimal Slider Controls & Counter (Bottom Right) */}
-      <div className="slider-controls-container flex items-center gap-4 sm:gap-6 bg-black/60 backdrop-blur-md border border-white/15 px-4 sm:px-6 py-2.5 sm:py-3 shadow-lg">
+      <div className="slider-controls-container flex items-center gap-4 sm:gap-6 bg-[#121212]/80 backdrop-blur-md border border-white/20 px-4 sm:px-6 py-2.5 sm:py-3 shadow-md">
         {/* Progress Counter (e.g., 01 / 05) */}
         <div className="text-xs font-mono tracking-widest text-white/90">
           <span className="text-[#FFC01D] font-medium">
@@ -190,9 +190,9 @@ export function FeaturedSlider({ projects, autoPlayIntervalMs = 5500 }: Featured
       </div>
 
       {/* Minimal Progress Bar along bottom edge */}
-      <div className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-white/10 z-20">
+      <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/10 z-20">
         <div
-          className="h-full bg-gradient-to-r from-[#E5A912] to-[#FFC01D] transition-all duration-300 ease-out"
+          className="h-full bg-[#D99200] transition-all duration-300 ease-out"
           style={{ width: `${((currentIndex + 1) / total) * 100}%` }}
         />
       </div>

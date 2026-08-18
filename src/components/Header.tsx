@@ -85,12 +85,12 @@ export function Header() {
           isVisible ? 'translate-y-0' : '-translate-y-full'
         } ${
           isNotFound
-            ? 'bg-[#F9F8F6] border-b border-[#E5E2DC] py-4 text-[#111111] shadow-xs'
+            ? 'bg-[#FAF9F6] border-b border-[#E6E2DB] py-4 text-[#121212] shadow-xs'
             : isScrolled
-            ? 'bg-[#F9F8F6]/90 backdrop-blur-md border-b border-[#E5E2DC]/60 py-4 shadow-xs text-[#111111]'
+            ? 'bg-[#FAF9F6]/90 backdrop-blur-md border-b border-[#E6E2DB]/70 py-4 shadow-xs text-[#121212]'
             : isHomepage
             ? 'bg-gradient-to-b from-black/50 via-black/20 to-transparent py-6 text-white'
-            : 'bg-[#F9F8F6] py-6 text-[#111111] border-b border-transparent'
+            : 'bg-[#FAF9F6] py-6 text-[#121212] border-b border-transparent'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
@@ -98,7 +98,7 @@ export function Header() {
           <div className="flex items-center gap-3">
             <Link
               to="/"
-              className="group flex items-center gap-3 focus:outline-hidden focus-visible:ring-1 focus-visible:ring-[#111111]"
+              className="group flex items-center gap-3 focus:outline-hidden focus-visible:ring-1 focus-visible:ring-[#121212]"
               aria-label="cla Creative Layers Architects Home"
             >
               <ClaLogoSvg
@@ -109,9 +109,9 @@ export function Header() {
 
             {/* Architectural 404 State Indicator */}
             {isNotFound && (
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-[9px] uppercase tracking-[0.2em] font-mono text-[#666666] bg-[#EFECE6] border border-[#E5E2DC] select-none">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#111111]/60 animate-pulse" />
-                404 // Page Missing
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-[9px] uppercase tracking-[0.2em] font-mono text-[#6B6864] bg-[#ECEAE4] border border-[#E6E2DB] select-none">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#121212]/60" />
+                404 // Missing
               </span>
             )}
           </div>
@@ -132,18 +132,18 @@ export function Header() {
                   className={`relative text-xs tracking-[0.18em] uppercase transition-colors duration-300 py-1 ${
                     isActive
                       ? isNotFound || isScrolled || !isHomepage
-                        ? 'text-[#111111] font-semibold'
+                        ? 'text-[#121212] font-semibold'
                         : 'text-white font-semibold'
                       : isNotFound || isScrolled || !isHomepage
-                      ? 'text-[#666666] hover:text-[#111111]'
-                      : 'text-white/70 hover:text-white'
+                      ? 'text-[#6B6864] hover:text-[#121212]'
+                      : 'text-white/75 hover:text-white'
                   }`}
                 >
                   {link.label}
                   {isActive && (
                     <span
                       className={`absolute bottom-0 left-0 right-0 h-[1.5px] transition-all duration-300 ${
-                        isNotFound || isScrolled || !isHomepage ? 'bg-[#E5A912]' : 'bg-[#FFC01D]'
+                        isNotFound || isScrolled || !isHomepage ? 'bg-[#D99200]' : 'bg-[#FFC01D]'
                       }`}
                     />
                   )}
@@ -155,7 +155,7 @@ export function Header() {
             {isNotFound && (
               <Link
                 to="/"
-                className="text-xs uppercase tracking-[0.2em] font-medium text-[#111111] border border-[#111111] px-4 py-1.5 hover:bg-[#111111] hover:text-[#F9F8F6] transition-all duration-300"
+                className="text-xs uppercase tracking-[0.2em] font-medium text-[#121212] border border-[#121212] px-4 py-1.5 hover:bg-[#121212] hover:text-[#FAF9F6] transition-all duration-300"
               >
                 ← Return to Home
               </Link>
@@ -166,7 +166,7 @@ export function Header() {
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className={`md:hidden relative p-2 focus:outline-hidden transition-colors ${
-              isNotFound || isScrolled || !isHomepage ? 'text-[#111111]' : 'text-white'
+              isNotFound || isScrolled || !isHomepage ? 'text-[#121212]' : 'text-white'
             }`}
             aria-label={mobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
             aria-expanded={mobileMenuOpen}
@@ -174,17 +174,17 @@ export function Header() {
             <div className="w-6 h-5 flex flex-col justify-between items-end relative">
               <span
                 className={`h-[1px] w-6 transition-all duration-300 ${
-                  isNotFound || isScrolled || !isHomepage ? 'bg-[#111111]' : 'bg-white'
+                  isNotFound || isScrolled || !isHomepage ? 'bg-[#121212]' : 'bg-white'
                 } ${mobileMenuOpen ? 'rotate-45 translate-y-2 w-6' : ''}`}
               />
               <span
                 className={`h-[1px] w-4 transition-all duration-300 ${
-                  isNotFound || isScrolled || !isHomepage ? 'bg-[#111111]' : 'bg-white'
+                  isNotFound || isScrolled || !isHomepage ? 'bg-[#121212]' : 'bg-white'
                 } ${mobileMenuOpen ? 'opacity-0' : ''}`}
               />
               <span
                 className={`h-[1px] w-6 transition-all duration-300 ${
-                  isNotFound || isScrolled || !isHomepage ? 'bg-[#111111]' : 'bg-white'
+                  isNotFound || isScrolled || !isHomepage ? 'bg-[#121212]' : 'bg-white'
                 } ${mobileMenuOpen ? '-rotate-45 -translate-y-2 w-6' : ''}`}
               />
             </div>
@@ -194,7 +194,7 @@ export function Header() {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 z-40 bg-[#F9F8F6] transition-all duration-500 flex flex-col justify-between p-8 pt-28 md:hidden ${
+        className={`fixed inset-0 z-40 bg-[#FAF9F6] transition-all duration-500 flex flex-col justify-between p-8 pt-28 md:hidden ${
           mobileMenuOpen
             ? 'opacity-100 pointer-events-auto translate-y-0'
             : 'opacity-0 pointer-events-none -translate-y-4'
@@ -203,9 +203,9 @@ export function Header() {
         <div className="flex flex-col gap-6">
           {/* Mobile 404 Banner */}
           {isNotFound && (
-            <div className="flex items-center gap-2 bg-[#EFECE6] border border-[#E5E2DC] px-4 py-2.5 text-[10px] uppercase font-mono tracking-widest text-[#666666]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#111111]/60" />
-              <span>404 // Page Missing</span>
+            <div className="flex items-center gap-2 bg-[#ECEAE4] border border-[#E6E2DB] px-4 py-2.5 text-[10px] uppercase font-mono tracking-widest text-[#6B6864]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#121212]/60" />
+              <span>404 // Missing</span>
             </div>
           )}
 
@@ -222,7 +222,7 @@ export function Header() {
                   key={link.path}
                   to={link.path}
                   className={`text-2xl font-serif-editorial tracking-wide transition-colors ${
-                    isActive ? 'text-[#111111] font-normal pl-2 border-l border-[#111111]' : 'text-[#666666]'
+                    isActive ? 'text-[#121212] font-normal pl-2 border-l-2 border-[#D99200]' : 'text-[#6B6864]'
                   }`}
                   style={{ transitionDelay: `${idx * 50}ms` }}
                 >
@@ -233,12 +233,12 @@ export function Header() {
           </nav>
         </div>
 
-        <div className="border-t border-[#E5E2DC] pt-8 flex flex-col gap-3 text-xs text-[#666666]">
+        <div className="border-t border-[#E6E2DB] pt-8 flex flex-col gap-3 text-xs text-[#6B6864]">
           <ClaLogoSvg variant="dark" className="h-8 w-auto self-start" />
           <p>{siteConfig.brand.fullName}</p>
           <a
             href={`mailto:${siteConfig.contact.email}`}
-            className="hover:text-[#111111] transition-colors"
+            className="hover:text-[#121212] transition-colors"
           >
             {siteConfig.contact.email}
           </a>

@@ -36,7 +36,7 @@ export function ProjectDetailPage() {
   };
 
   return (
-    <div className="pt-32 pb-24 max-w-6xl mx-auto px-6 lg:px-12 bg-[#F9F8F6]">
+    <div className="pt-32 pb-24 max-w-6xl mx-auto px-6 lg:px-12 bg-[#FAF9F6]">
       <SEO
         title={project.title}
         description={project.description}
@@ -44,16 +44,16 @@ export function ProjectDetailPage() {
       />
 
       {/* Top Header: Minimal Project Name + Back to Projects */}
-      <div className="flex flex-wrap items-baseline justify-between gap-4 pb-8 mb-8 border-b border-[#E5E2DC]">
+      <div className="flex flex-wrap items-baseline justify-between gap-4 pb-8 mb-8 border-b border-[#E6E2DB]">
         <div>
-          <span className="text-[10px] uppercase tracking-[0.25em] text-[#666666] font-medium block mb-1">
+          <span className="text-[10px] uppercase tracking-[0.25em] text-[#6B6864] font-medium block mb-1">
             {project.categories.join(' • ')}
           </span>
-          <h1 className="font-serif-editorial text-3xl sm:text-4xl md:text-5xl text-[#111111] font-light tracking-tight">
+          <h1 className="font-serif-editorial text-3xl sm:text-4xl md:text-5xl text-[#121212] font-light tracking-tight">
             {project.title}
           </h1>
           {project.subtitle && (
-            <p className="text-xs uppercase tracking-[0.18em] text-[#666666] mt-1 font-light">
+            <p className="text-xs uppercase tracking-[0.18em] text-[#6B6864] mt-1 font-light">
               {project.subtitle}
             </p>
           )}
@@ -61,9 +61,9 @@ export function ProjectDetailPage() {
 
         <Link
           to="/projects"
-          className="group text-xs uppercase tracking-[0.2em] text-[#111111] hover:text-[#111111] transition-colors font-medium inline-flex items-center gap-2"
+          className="group text-xs uppercase tracking-[0.2em] text-[#121212] hover:text-[#121212] transition-colors font-medium inline-flex items-center gap-2"
         >
-          <span className="text-[#D49B0E] font-semibold transform group-hover:-translate-x-1 transition-transform">←</span>
+          <span className="text-[#D99200] font-semibold transform group-hover:-translate-x-1 transition-transform">←</span>
           <span>Back to Projects</span>
         </Link>
       </div>
@@ -72,7 +72,7 @@ export function ProjectDetailPage() {
       {project.heroImage && (
         <div
           onClick={() => handleOpenLightbox(0)}
-          className="group relative w-full mb-16 overflow-hidden bg-[#F2F0EC] cursor-pointer"
+          className="group relative w-full mb-16 overflow-hidden bg-[#F2EFE9] cursor-pointer"
           role="button"
           tabIndex={0}
           onKeyDown={(e) => {
@@ -91,7 +91,7 @@ export function ProjectDetailPage() {
             className="w-full h-auto max-h-[85vh] object-cover object-center animate-fade-in transition-transform duration-700 group-hover:scale-[1.01]"
           />
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-end justify-end p-6">
-            <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 inline-flex items-center gap-2 bg-black/70 backdrop-blur-xs text-white text-[10px] uppercase tracking-[0.2em] px-3.5 py-2 rounded-xs border border-white/10">
+            <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 inline-flex items-center gap-2 bg-[#121212]/80 backdrop-blur-xs text-white text-[10px] uppercase tracking-[0.2em] px-3.5 py-2 rounded-xs border border-white/15">
               <Maximize2 className="w-3.5 h-3.5 text-[#FFC01D]" />
               <span>View Fullscreen</span>
             </span>
@@ -100,18 +100,18 @@ export function ProjectDetailPage() {
       )}
 
       {/* Metadata & Editorial Description Section */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20 pb-16 border-b border-[#E5E2DC]">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20 pb-16 border-b border-[#E6E2DB]">
         {/* Project Metadata Column */}
-        <div className="md:col-span-4 flex flex-col gap-6 text-xs text-[#666666] font-light">
+        <div className="md:col-span-4 flex flex-col gap-6 text-xs text-[#6B6864] font-light">
           <div>
-            <span className="text-[10px] uppercase tracking-[0.2em] text-[#111111] font-medium block mb-1">
+            <span className="text-[10px] uppercase tracking-[0.2em] text-[#121212] font-medium block mb-1">
               Location
             </span>
             <p>{project.location}</p>
           </div>
 
           <div>
-            <span className="text-[10px] uppercase tracking-[0.2em] text-[#111111] font-medium block mb-1">
+            <span className="text-[10px] uppercase tracking-[0.2em] text-[#121212] font-medium block mb-1">
               Year
             </span>
             <p>{project.year}</p>
@@ -119,7 +119,7 @@ export function ProjectDetailPage() {
 
           {project.metadata?.client && (
             <div>
-              <span className="text-[10px] uppercase tracking-[0.2em] text-[#111111] font-medium block mb-1">
+              <span className="text-[10px] uppercase tracking-[0.2em] text-[#121212] font-medium block mb-1">
                 Client
               </span>
               <p>{project.metadata.client}</p>
@@ -128,7 +128,7 @@ export function ProjectDetailPage() {
 
           {project.metadata?.typology && (
             <div>
-              <span className="text-[10px] uppercase tracking-[0.2em] text-[#111111] font-medium block mb-1">
+              <span className="text-[10px] uppercase tracking-[0.2em] text-[#121212] font-medium block mb-1">
                 Typology
               </span>
               <p>{project.metadata.typology}</p>
@@ -137,7 +137,7 @@ export function ProjectDetailPage() {
 
           {project.metadata?.scope && (
             <div>
-              <span className="text-[10px] uppercase tracking-[0.2em] text-[#111111] font-medium block mb-1">
+              <span className="text-[10px] uppercase tracking-[0.2em] text-[#121212] font-medium block mb-1">
                 Scope
               </span>
               <p>{project.metadata.scope}</p>
@@ -146,7 +146,7 @@ export function ProjectDetailPage() {
 
           {project.metadata?.area && (
             <div>
-              <span className="text-[10px] uppercase tracking-[0.2em] text-[#111111] font-medium block mb-1">
+              <span className="text-[10px] uppercase tracking-[0.2em] text-[#121212] font-medium block mb-1">
                 Area
               </span>
               <p>{project.metadata.area}</p>
@@ -156,7 +156,7 @@ export function ProjectDetailPage() {
 
         {/* Description Column */}
         <div className="md:col-span-8">
-          <p className="font-serif-editorial text-xl md:text-2xl text-[#111111] font-light leading-relaxed">
+          <p className="font-serif-editorial text-xl md:text-2xl text-[#121212] font-light leading-relaxed">
             {project.description}
           </p>
         </div>
@@ -165,7 +165,7 @@ export function ProjectDetailPage() {
       {/* Vertical Image Sequence Gallery */}
       {project.galleryImages && project.galleryImages.length > 0 && (
         <div className="flex flex-col gap-12 lg:gap-20 mb-24">
-          <span className="text-[10px] uppercase tracking-[0.25em] text-[#666666] font-medium block border-b border-[#E5E2DC] pb-4">
+          <span className="text-[10px] uppercase tracking-[0.25em] text-[#6B6864] font-medium block border-b border-[#E6E2DB] pb-4">
             Gallery & Spatial Details
           </span>
 
@@ -175,7 +175,7 @@ export function ProjectDetailPage() {
               <figure
                 key={index}
                 onClick={() => handleOpenLightbox(imageIndex)}
-                className="group relative w-full bg-[#F2F0EC] cursor-pointer overflow-hidden"
+                className="group relative w-full bg-[#F2EFE9] cursor-pointer overflow-hidden"
                 role="button"
                 tabIndex={0}
                 onKeyDown={(e) => {
@@ -194,7 +194,7 @@ export function ProjectDetailPage() {
                   className="w-full h-auto object-cover object-center transition-transform duration-700 group-hover:scale-[1.01]"
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-end justify-end p-6">
-                  <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 inline-flex items-center gap-2 bg-black/70 backdrop-blur-xs text-white text-[10px] uppercase tracking-[0.2em] px-3.5 py-2 rounded-xs border border-white/10">
+                  <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 inline-flex items-center gap-2 bg-[#121212]/80 backdrop-blur-xs text-white text-[10px] uppercase tracking-[0.2em] px-3.5 py-2 rounded-xs border border-white/15">
                     <Maximize2 className="w-3.5 h-3.5 text-[#FFC01D]" />
                     <span>View Fullscreen</span>
                   </span>
@@ -206,16 +206,16 @@ export function ProjectDetailPage() {
       )}
 
       {/* Bottom Project Navigation (Previous / Next) */}
-      <div className="border-t border-[#E5E2DC] pt-12 flex items-center justify-between">
+      <div className="border-t border-[#E6E2DB] pt-12 flex items-center justify-between">
         {prev ? (
           <Link
             to={`/projects/${prev.slug}`}
             className="group flex flex-col text-left"
           >
-            <span className="text-[10px] uppercase tracking-[0.2em] text-[#666666] group-hover:text-[#D49B0E] transition-colors mb-1">
+            <span className="text-[10px] uppercase tracking-[0.2em] text-[#6B6864] group-hover:text-[#D99200] transition-colors mb-1">
               ← Previous Project
             </span>
-            <span className="font-serif-editorial text-xl text-[#111111] group-hover:text-[#111111] transition-colors">
+            <span className="font-serif-editorial text-xl text-[#121212] group-hover:text-[#121212] transition-colors">
               {prev.title}
             </span>
           </Link>
@@ -226,10 +226,10 @@ export function ProjectDetailPage() {
             to={`/projects/${next.slug}`}
             className="group flex flex-col text-right"
           >
-            <span className="text-[10px] uppercase tracking-[0.2em] text-[#666666] group-hover:text-[#D49B0E] transition-colors mb-1">
+            <span className="text-[10px] uppercase tracking-[0.2em] text-[#6B6864] group-hover:text-[#D99200] transition-colors mb-1">
               Next Project →
             </span>
-            <span className="font-serif-editorial text-xl text-[#111111] group-hover:text-[#111111] transition-colors">
+            <span className="font-serif-editorial text-xl text-[#121212] group-hover:text-[#121212] transition-colors">
               {next.title}
             </span>
           </Link>
