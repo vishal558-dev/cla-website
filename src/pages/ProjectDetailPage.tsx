@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { getProjectBySlug, getAdjacentProjects } from '../data/projects';
 import { SEO } from '../components/SEO';
+import { LightboxModal } from '../components/LightboxModal';
+import { Maximize2 } from 'lucide-react';
 
 export function ProjectDetailPage() {
   const { slug, param } = useParams<{ slug?: string; param?: string }>();
   const projectSlug = slug || param;
+
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
 
   if (!projectSlug) {
     return <Navigate to="/404" replace />;
@@ -18,6 +23,17 @@ export function ProjectDetailPage() {
   }
 
   const { prev, next } = getAdjacentProjects(project.slug);
+
+  // Collect all project images for the lightbox sequence
+  const allImages = [
+    project.heroImage,
+    ...(project.galleryImages || []),
+  ].filter((img): img is string => Boolean(img));
+
+  const handleOpenLightbox = (index: number) => {
+    setActiveImageIndex(index);
+    setLightboxOpen(true);
+  };
 
   return (
     <div className="pt-32 pb-24 max-w-6xl mx-auto px-6 lg:px-12 bg-[#F9F8F6]">
@@ -52,16 +68,34 @@ export function ProjectDetailPage() {
         </Link>
       </div>
 
-      {/* First Large Project Hero Image */}
+      {/* First Large Project Hero Image with Lightbox Trigger */}
       {project.heroImage && (
-        <div className="w-full mb-16 overflow-hidden bg-[#F2F0EC]">
+        <div
+          onClick={() => handleOpenLightbox(0)}
+          className="group relative w-full mb-16 overflow-hidden bg-[#F2F0EC] cursor-pointer"
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              handleOpenLightbox(0);
+            }
+          }}
+          aria-label="Enlarge hero image"
+        >
           <img
             src={project.heroImage}
             alt={project.title}
             referrerPolicy="no-referrer"
             loading="eager"
-            className="w-full h-auto max-h-[85vh] object-cover object-center animate-fade-in"
+            className="w-full h-auto max-h-[85vh] object-cover object-center animate-fade-in transition-transform duration-700 group-hover:scale-[1.01]"
           />
+          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-end justify-end p-6">
+            <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 inline-flex items-center gap-2 bg-black/70 backdrop-blur-xs text-white text-[10px] uppercase tracking-[0.2em] px-3.5 py-2 rounded-xs border border-white/10">
+              <Maximize2 className="w-3.5 h-3.5 text-[#FFC01D]" />
+              <span>View Fullscreen</span>
+            </span>
+          </div>
         </div>
       )}
 
@@ -135,17 +169,39 @@ export function ProjectDetailPage() {
             Gallery & Spatial Details
           </span>
 
-          {project.galleryImages.map((imgUrl, index) => (
-            <figure key={index} className="w-full bg-[#F2F0EC]">
-              <img
-                src={imgUrl}
-                alt={`${project.title} gallery detail ${index + 1}`}
-                referrerPolicy="no-referrer"
-                loading="lazy"
-                className="w-full h-auto object-cover object-center transition-opacity duration-700 hover:opacity-95"
-              />
-            </figure>
-          ))}
+          {project.galleryImages.map((imgUrl, index) => {
+            const imageIndex = (project.heroImage ? 1 : 0) + index;
+            return (
+              <figure
+                key={index}
+                onClick={() => handleOpenLightbox(imageIndex)}
+                className="group relative w-full bg-[#F2F0EC] cursor-pointer overflow-hidden"
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    handleOpenLightbox(imageIndex);
+                  }
+                }}
+                aria-label={`Enlarge gallery detail ${index + 1}`}
+              >
+                <img
+                  src={imgUrl}
+                  alt={`${project.title} gallery detail ${index + 1}`}
+                  referrerPolicy="no-referrer"
+                  loading="lazy"
+                  className="w-full h-auto object-cover object-center transition-transform duration-700 group-hover:scale-[1.01]"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-end justify-end p-6">
+                  <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 inline-flex items-center gap-2 bg-black/70 backdrop-blur-xs text-white text-[10px] uppercase tracking-[0.2em] px-3.5 py-2 rounded-xs border border-white/10">
+                    <Maximize2 className="w-3.5 h-3.5 text-[#FFC01D]" />
+                    <span>View Fullscreen</span>
+                  </span>
+                </div>
+              </figure>
+            );
+          })}
         </div>
       )}
 
@@ -179,6 +235,16 @@ export function ProjectDetailPage() {
           </Link>
         ) : <div />}
       </div>
+
+      {/* Interactive Lightbox Modal */}
+      <LightboxModal
+        isOpen={lightboxOpen}
+        images={allImages}
+        currentIndex={activeImageIndex}
+        projectTitle={project.title}
+        onClose={() => setLightboxOpen(false)}
+        onNavigate={(newIdx) => setActiveImageIndex(newIdx)}
+      />
     </div>
   );
 }
