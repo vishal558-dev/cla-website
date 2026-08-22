@@ -1,18 +1,33 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { siteConfig } from '../config/siteConfig';
 import { SEO } from '../components/SEO';
 import { ClaLogoSvg } from '../components/ClaLogoSvg';
 
+const fadeInUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+  }
+};
+
 export function AboutPage() {
   return (
-    <div className="pt-32 pb-24 max-w-4xl mx-auto px-6 lg:px-12 bg-[#FAF9F6]">
+    <div className="pt-32 pb-24 max-w-4xl mx-auto px-6 lg:px-12 bg-[#FAF9F6] overflow-hidden">
       <SEO
         title="About Us"
         description={`Learn about ${siteConfig.brand.fullName} (${siteConfig.brand.name}) — minimal luxury architecture and spatial design.`}
       />
 
       {/* Page Heading - Starts directly with text, no hero image */}
-      <div className="mb-16 border-b border-[#E6E2DB] pb-10">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        className="mb-16 border-b border-[#E6E2DB] pb-10"
+      >
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
           <span className="text-[10px] uppercase tracking-[0.25em] text-[#6B6864] font-medium block">
             Studio Philosophy
@@ -28,10 +43,16 @@ export function AboutPage() {
         <p className="font-serif-editorial text-2xl md:text-3xl text-[#121212] font-light leading-relaxed">
           {siteConfig.brand.fullName} is an architecture and spatial design practice exploring the relationship between form, light, and material texture.
         </p>
-      </div>
+      </motion.div>
 
       {/* Main Firm Introduction Essay */}
-      <div className="space-y-8 text-sm md:text-base text-[#403E3B] font-light leading-relaxed mb-20">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: '-60px' }}
+        variants={fadeInUp}
+        className="space-y-8 text-sm md:text-base text-[#403E3B] font-light leading-relaxed mb-20"
+      >
         <p>
           Founded on the principle that architecture should serve as a quiet framework for living, our studio creates spaces characterized by spatial clarity, tactile materiality, and contextual sensitivity.
         </p>
@@ -41,12 +62,18 @@ export function AboutPage() {
         <p>
           Based in Delhi NCR, our practice spans bespoke residential architecture, spatial interior transformations, and contextual pavilion design across the region and India.
         </p>
-      </div>
+      </motion.div>
 
       {/* Extensible Future Sections (Founder, Team, Awards, Services) */}
       {/* These will render seamlessly when enabled in siteConfig.settings */}
       {siteConfig.settings.enableFounderSection && (
-        <section className="mb-20 pt-12 border-t border-[#E6E2DB]">
+        <motion.section
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+          className="mb-20 pt-12 border-t border-[#E6E2DB]"
+        >
           <span className="text-[10px] uppercase tracking-[0.25em] text-[#6B6864] font-medium block mb-4">
             Leadership
           </span>
@@ -54,11 +81,17 @@ export function AboutPage() {
             Principal / Founder
           </h2>
           {/* Founder bio content will go here when supplied */}
-        </section>
+        </motion.section>
       )}
 
       {siteConfig.settings.enableTeamSection && (
-        <section className="mb-20 pt-12 border-t border-[#E6E2DB]">
+        <motion.section
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+          className="mb-20 pt-12 border-t border-[#E6E2DB]"
+        >
           <span className="text-[10px] uppercase tracking-[0.25em] text-[#6B6864] font-medium block mb-4">
             People
           </span>
@@ -66,11 +99,17 @@ export function AboutPage() {
             The Studio Team
           </h2>
           {/* Team list content will go here when supplied */}
-        </section>
+        </motion.section>
       )}
 
       {siteConfig.settings.enableAwardsSection && (
-        <section className="mb-20 pt-12 border-t border-[#E6E2DB]">
+        <motion.section
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+          className="mb-20 pt-12 border-t border-[#E6E2DB]"
+        >
           <span className="text-[10px] uppercase tracking-[0.25em] text-[#6B6864] font-medium block mb-4">
             Recognition
           </span>
@@ -78,11 +117,17 @@ export function AboutPage() {
             Awards & Distinctions
           </h2>
           {/* Awards list content will go here when supplied */}
-        </section>
+        </motion.section>
       )}
 
       {siteConfig.settings.enableServicesSection && (
-        <section className="mb-20 pt-12 border-t border-[#E6E2DB]">
+        <motion.section
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+          className="mb-20 pt-12 border-t border-[#E6E2DB]"
+        >
           <span className="text-[10px] uppercase tracking-[0.25em] text-[#6B6864] font-medium block mb-4">
             Capabilities
           </span>
@@ -90,7 +135,7 @@ export function AboutPage() {
             Architectural Services
           </h2>
           {/* Services content will go here when supplied */}
-        </section>
+        </motion.section>
       )}
     </div>
   );

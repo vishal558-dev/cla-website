@@ -1,20 +1,35 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { siteConfig } from '../config/siteConfig';
 import { SEO } from '../components/SEO';
+
+const fadeIn = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+  }
+};
 
 export function ContactPage() {
   const { contact } = siteConfig;
   const mapCity = contact.address.city.split(',')[0];
 
   return (
-    <div className="pt-32 pb-24 max-w-6xl mx-auto px-6 lg:px-12 bg-[#FAF9F6]">
+    <div className="pt-32 pb-24 max-w-6xl mx-auto px-6 lg:px-12 bg-[#FAF9F6] overflow-hidden">
       <SEO
         title="Contact"
         description={`Get in touch with ${siteConfig.brand.fullName} (${siteConfig.brand.name}) for project inquiries.`}
       />
 
       {/* Page Heading */}
-      <div className="mb-16 border-b border-[#E6E2DB] pb-10">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        className="mb-16 border-b border-[#E6E2DB] pb-10"
+      >
         <span className="text-[10px] uppercase tracking-[0.25em] text-[#6B6864] font-medium block mb-2">
           Inquiries
         </span>
@@ -24,12 +39,17 @@ export function ContactPage() {
         <p className="text-sm font-light text-[#6B6864] max-w-xl leading-relaxed">
           We welcome inquiries for bespoke residential architecture, interior transformations, and spatial consultations across Delhi NCR and India.
         </p>
-      </div>
+      </motion.div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
         {/* Contact Details Column */}
-        <div className="lg:col-span-5 flex flex-col gap-10 text-sm font-light text-[#403E3B]">
-          
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+          variants={fadeIn}
+          className="lg:col-span-5 flex flex-col gap-10 text-sm font-light text-[#403E3B]"
+        >
           {/* Address */}
           <div>
             <span className="text-[10px] uppercase tracking-[0.25em] text-[#6B6864] font-medium block mb-2">
@@ -94,10 +114,16 @@ export function ContactPage() {
               <p className="text-xs text-[#6B6864]">{contact.officeHours}</p>
             </div>
           )}
-        </div>
+        </motion.div>
 
         {/* Studio location panel */}
-        <div className="lg:col-span-7">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+          variants={fadeIn}
+          className="lg:col-span-7"
+        >
           <div className="flex items-center justify-between mb-3">
             <span className="text-[10px] uppercase tracking-[0.25em] text-[#6B6864] font-medium block">
               Studio Location Map
@@ -141,7 +167,7 @@ export function ContactPage() {
               </p>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

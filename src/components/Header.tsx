@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'motion/react';
 import { siteConfig } from '../config/siteConfig';
 import { getProjectBySlug } from '../data/projects';
 import { ClaLogoSvg } from './ClaLogoSvg';
@@ -193,57 +194,60 @@ export function Header() {
       </header>
 
       {/* Mobile Menu Overlay */}
-      <div
-        className={`fixed inset-0 z-40 bg-[#FAF9F6] transition-all duration-500 flex flex-col justify-between p-8 pt-28 md:hidden ${
-          mobileMenuOpen
-            ? 'opacity-100 pointer-events-auto translate-y-0'
-            : 'opacity-0 pointer-events-none -translate-y-4'
-        }`}
-      >
-        <div className="flex flex-col gap-6">
-          {/* Mobile 404 Banner */}
-          {isNotFound && (
-            <div className="flex items-center gap-2 bg-[#ECEAE4] border border-[#E6E2DB] px-4 py-2.5 text-[10px] uppercase font-mono tracking-widest text-[#6B6864]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#121212]/60" />
-              <span>404 // Missing</span>
-            </div>
-          )}
-
-          <nav className="flex flex-col gap-8" aria-label="Mobile Navigation">
-            {navLinks.map((link, idx) => {
-              const isActive =
-                !isNotFound &&
-                (link.path === '/'
-                  ? location.pathname === '/'
-                  : location.pathname.startsWith(link.path));
-
-              return (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  className={`text-2xl font-serif-editorial tracking-wide transition-colors ${
-                    isActive ? 'text-[#121212] font-normal pl-2 border-l-2 border-[#D99200]' : 'text-[#6B6864]'
-                  }`}
-                  style={{ transitionDelay: `${idx * 50}ms` }}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
-          </nav>
-        </div>
-
-        <div className="border-t border-[#E6E2DB] pt-8 flex flex-col gap-3 text-xs text-[#6B6864]">
-          <ClaLogoSvg variant="dark" className="h-8 w-auto self-start" />
-          <p>{siteConfig.brand.fullName}</p>
-          <a
-            href={`mailto:${siteConfig.contact.email}`}
-            className="hover:text-[#121212] transition-colors"
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -16 }}
+            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed inset-0 z-40 bg-[#FAF9F6] flex flex-col justify-between p-8 pt-28 md:hidden"
           >
-            {siteConfig.contact.email}
-          </a>
-        </div>
-      </div>
+            <div className="flex flex-col gap-6">
+              {/* Mobile 404 Banner */}
+              {isNotFound && (
+                <div className="flex items-center gap-2 bg-[#ECEAE4] border border-[#E6E2DB] px-4 py-2.5 text-[10px] uppercase font-mono tracking-widest text-[#6B6864]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#121212]/60" />
+                  <span>404 // Missing</span>
+                </div>
+              )}
+
+              <nav className="flex flex-col gap-8" aria-label="Mobile Navigation">
+                {navLinks.map((link) => {
+                  const isActive =
+                    !isNotFound &&
+                    (link.path === '/'
+                      ? location.pathname === '/'
+                      : location.pathname.startsWith(link.path));
+
+                  return (
+                    <Link
+                      key={link.path}
+                      to={link.path}
+                      className={`text-2xl font-serif-editorial tracking-wide transition-colors ${
+                        isActive ? 'text-[#121212] font-normal pl-2 border-l-2 border-[#D99200]' : 'text-[#6B6864]'
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  );
+                })}
+              </nav>
+            </div>
+
+            <div className="border-t border-[#E6E2DB] pt-8 flex flex-col gap-3 text-xs text-[#6B6864]">
+              <ClaLogoSvg variant="dark" className="h-8 w-auto self-start" />
+              <p>{siteConfig.brand.fullName}</p>
+              <a
+                href={`mailto:${siteConfig.contact.email}`}
+                className="hover:text-[#121212] transition-colors"
+              >
+                {siteConfig.contact.email}
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

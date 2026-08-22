@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'motion/react';
 import { Project } from '../types';
 
 interface FeaturedSliderProps {
@@ -79,31 +80,27 @@ export function FeaturedSlider({ projects, autoPlayIntervalMs = 5500 }: Featured
       onTouchEnd={handleTouchEnd}
       aria-label="Featured Projects Slider"
     >
-      {/* Background Images with horizontal glide & crossfade */}
+      {/* Background Images with motion crossfade */}
       <div className="absolute inset-0 w-full h-full">
-        {projects.map((project, index) => {
-          const isActive = index === currentIndex;
-
-          return (
-            <div
-              key={project.id}
-              className={`absolute inset-0 w-full h-full transition-all duration-1000 cubic-bezier(0.16, 1, 0.3, 1) ${
-                isActive
-                  ? 'opacity-100 scale-100 z-10'
-                  : 'opacity-0 scale-105 pointer-events-none z-0'
-              }`}
-            >
-              <img
-                src={project.heroImage}
-                alt={project.title}
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-cover object-center filter brightness-[0.88]"
-                loading={index === 0 ? 'eager' : 'lazy'}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
-            </div>
-          );
-        })}
+        <AnimatePresence initial={false} mode="sync">
+          <motion.div
+            key={currentProject.id}
+            initial={{ opacity: 0, scale: 1.04 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            className="absolute inset-0 w-full h-full"
+          >
+            <img
+              src={currentProject.heroImage}
+              alt={currentProject.title}
+              referrerPolicy="no-referrer"
+              className="w-full h-full object-cover object-center filter brightness-[0.88]"
+              loading="eager"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
+          </motion.div>
+        </AnimatePresence>
       </div>
 
       {/* Visually Hidden Metadata for SEO & Accessibility */}
@@ -113,7 +110,7 @@ export function FeaturedSlider({ projects, autoPlayIntervalMs = 5500 }: Featured
         <p>Location: {currentProject.location}</p>
       </div>
 
-      {/* Floating View Project CTA (Visual overlay requirement: ONLY View Project button) */}
+      {/* Floating View Project CTA */}
       <div className="slider-cta-container">
         <Link
           to={`/projects/${currentProject.slug}`}
@@ -191,9 +188,11 @@ export function FeaturedSlider({ projects, autoPlayIntervalMs = 5500 }: Featured
 
       {/* Minimal Progress Bar along bottom edge */}
       <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/10 z-20">
-        <div
-          className="h-full bg-[#D99200] transition-all duration-300 ease-out"
-          style={{ width: `${((currentIndex + 1) / total) * 100}%` }}
+        <motion.div
+          className="h-full bg-[#D99200]"
+          initial={false}
+          animate={{ width: `${((currentIndex + 1) / total) * 100}%` }}
+          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
         />
       </div>
     </section>

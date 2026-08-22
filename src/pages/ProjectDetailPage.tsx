@@ -1,9 +1,19 @@
 import React, { useState } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
+import { motion } from 'motion/react';
 import { getProjectBySlug, getAdjacentProjects } from '../data/projects';
 import { SEO } from '../components/SEO';
 import { LightboxModal } from '../components/LightboxModal';
 import { Maximize2 } from 'lucide-react';
+
+const fadeIn = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] }
+  }
+};
 
 export function ProjectDetailPage() {
   const { slug, param } = useParams<{ slug?: string; param?: string }>();
@@ -36,7 +46,7 @@ export function ProjectDetailPage() {
   };
 
   return (
-    <div className="pt-32 pb-24 max-w-6xl mx-auto px-6 lg:px-12 bg-[#FAF9F6]">
+    <div className="pt-32 pb-24 max-w-6xl mx-auto px-6 lg:px-12 bg-[#FAF9F6] overflow-hidden">
       <SEO
         title={project.title}
         description={project.description}
@@ -44,7 +54,12 @@ export function ProjectDetailPage() {
       />
 
       {/* Top Header: Minimal Project Name + Back to Projects */}
-      <div className="flex flex-wrap items-baseline justify-between gap-4 pb-8 mb-8 border-b border-[#E6E2DB]">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        className="flex flex-wrap items-baseline justify-between gap-4 pb-8 mb-8 border-b border-[#E6E2DB]"
+      >
         <div>
           <span className="text-[10px] uppercase tracking-[0.25em] text-[#6B6864] font-medium block mb-1">
             {project.categories.join(' • ')}
@@ -66,11 +81,14 @@ export function ProjectDetailPage() {
           <span className="text-[#D99200] font-semibold transform group-hover:-translate-x-1 transition-transform">←</span>
           <span>Back to Projects</span>
         </Link>
-      </div>
+      </motion.div>
 
       {/* First Large Project Hero Image with Lightbox Trigger */}
       {project.heroImage && (
-        <div
+        <motion.div
+          initial={{ opacity: 0, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           onClick={() => handleOpenLightbox(0)}
           className="group relative w-full mb-16 overflow-hidden bg-[#F2EFE9] cursor-pointer"
           role="button"
@@ -88,7 +106,7 @@ export function ProjectDetailPage() {
             alt={project.title}
             referrerPolicy="no-referrer"
             loading="eager"
-            className="w-full h-auto max-h-[85vh] object-cover object-center animate-fade-in transition-transform duration-700 group-hover:scale-[1.01]"
+            className="w-full h-auto max-h-[85vh] object-cover object-center transition-transform duration-700 group-hover:scale-[1.01]"
           />
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-end justify-end p-6">
             <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 inline-flex items-center gap-2 bg-[#121212]/80 backdrop-blur-xs text-white text-[10px] uppercase tracking-[0.2em] px-3.5 py-2 rounded-xs border border-white/15">
@@ -96,11 +114,17 @@ export function ProjectDetailPage() {
               <span>View Fullscreen</span>
             </span>
           </div>
-        </div>
+        </motion.div>
       )}
 
       {/* Metadata & Editorial Description Section */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20 pb-16 border-b border-[#E6E2DB]">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: '-60px' }}
+        variants={fadeIn}
+        className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20 pb-16 border-b border-[#E6E2DB]"
+      >
         {/* Project Metadata Column */}
         <div className="md:col-span-4 flex flex-col gap-6 text-xs text-[#6B6864] font-light">
           <div>
@@ -160,7 +184,7 @@ export function ProjectDetailPage() {
             {project.description}
           </p>
         </div>
-      </div>
+      </motion.div>
 
       {/* Vertical Image Sequence Gallery */}
       {project.galleryImages && project.galleryImages.length > 0 && (
@@ -172,8 +196,12 @@ export function ProjectDetailPage() {
           {project.galleryImages.map((imgUrl, index) => {
             const imageIndex = (project.heroImage ? 1 : 0) + index;
             return (
-              <figure
+              <motion.figure
                 key={index}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: '-60px' }}
+                variants={fadeIn}
                 onClick={() => handleOpenLightbox(imageIndex)}
                 className="group relative w-full bg-[#F2EFE9] cursor-pointer overflow-hidden"
                 role="button"
@@ -199,7 +227,7 @@ export function ProjectDetailPage() {
                     <span>View Fullscreen</span>
                   </span>
                 </div>
-              </figure>
+              </motion.figure>
             );
           })}
         </div>
